@@ -1,0 +1,78 @@
+html {
+
+}
+
+td {
+	vertical-align: middle;
+	height: 33%;
+	width: 33%;
+}
+
+td div {
+	height: 90%;
+	width: 90%;
+	background-color: black;
+	margin: auto;
+}
+
+table {
+	border-collapse: collapse;
+	margin: auto;
+	background-color: white;
+	padding: 30px;
+}
+
+img {
+	width: 90%;
+	vertical-align: middle;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+#cinco {
+	text-align: center;
+}
+
+
+#plus {
+	vertical-align: middle;
+	position: absolute;
+	font-size: 3em;
+}
+
+.off {
+	background-color: white;
+}
+
+.on {
+	background-color: black;
+}
+
+div {
+	clear: both;
+	text-align: center;
+}
+
+#begin {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100px;
+	padding: 10px;
+}
+
+#info {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100px;
+	padding: 10px;
+}
+
+.btn {
+	padding: 10px;
+}
+
+#nhead {
+	padding: 5px;
+	font-size: 1em;
+	font-family: sans-serif;
+}
