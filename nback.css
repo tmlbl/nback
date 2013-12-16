@@ -70,12 +70,13 @@ div {
 
 .btn {
 	padding: 10px;
+	font-size: .8em;
 }
 
 #nhead {
 	padding: 5px;
 	font-size: 1em;
-	font-family: "Lucida Grande";
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	background-color: #CFCFCF;
 }
 
@@ -84,7 +85,6 @@ div {
 	margin-right: auto;
 	padding: 10px;
 	width: 140px;
-	margin-top: 10px;
 }
 
 #instruct {
@@ -102,7 +102,7 @@ div p {
 	width: 80%;
 	margin: auto;
 	padding-top: 10px;
-	font-family: "Lucida Grande";
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	line-height: 200%;
 	vertical-align: middle;
 }

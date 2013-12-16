@@ -2,7 +2,7 @@
 
 document.ready = function() {
 	var loadwidth = $(window).height();
-	loadwidth *= 0.60;
+	loadwidth *= 0.50;
 	$('table').css({'width':loadwidth+'px'});
 	$('table').css({'height':loadwidth+'px'});
 }
@@ -11,7 +11,7 @@ document.ready = function() {
 
 window.onresize = function() {
 	var dynwidth = $(window).height();
-	dynwidth *= 0.60;
+	dynwidth *= 0.50;
 	$('table').css({'width':dynwidth+'px'});
 	$('table').css({'height':dynwidth+'px'});
 }
@@ -407,6 +407,8 @@ $('#begin').click(function() {
 		playBlock();
 	}
 	blockRunning = true;
-	setTimeout(function() {blockRunning = false;}, 20000)
+	setTimeout(function() {
+		blockRunning = false;
+	}, 20000)
 });
 
