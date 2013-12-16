@@ -103,14 +103,16 @@ function prepareBlock(n) {
 		}
 		else {
 			continue;
-		}
+			}
 	}
 
 	// Create 4 audio targets in empty spots
 
 	var audios = 0;
+	audioRuns = 0;
 	while(audios < 4) {
 		var audTarg = Math.floor(Math.random() * blockLength);
+		audioRuns++;
 		if(thisBlock[audTarg + n]) {
 			if(thisBlock[audTarg][0] == 0 && thisBlock[audTarg][1] == 0 && thisBlock[audTarg + n][0] == 0 && thisBlock[audTarg + n][1] == 0) {
 				thisBlock[audTarg][1] = 1 + Math.floor(Math.random() * 8);
@@ -126,7 +128,12 @@ function prepareBlock(n) {
 				audios++;
 			}
 			else {
-				continue;
+				if(audioRuns>1000) {
+					break;
+				}
+				else {
+					continue;
+				}
 			}
 		}
 		else {
@@ -137,8 +144,10 @@ function prepareBlock(n) {
 	// Create 2 dual targets in empty spots
 
 	var doubles = 0;
+	var visualRuns = 0;
 	while(doubles < 2) {
 		var dualTarg = Math.floor(Math.random() * blockLength);
+		visualRuns++;
 		if(thisBlock[dualTarg + n]) {
 			if(thisBlock[dualTarg][0] == 0 && thisBlock[dualTarg][1] == 0 && thisBlock[dualTarg + n][0] == 0 && thisBlock[dualTarg + n][1] == 0) {
 				thisBlock[dualTarg][0] = 1 + Math.floor(Math.random() * 8);
@@ -147,7 +156,12 @@ function prepareBlock(n) {
 				doubles++;
 			}
 			else {
-				continue;
+				if(visualRuns>1000) {
+					break;
+				}
+				else {
+					continue;
+				}
 			}
 		}
 		else {
@@ -167,10 +181,24 @@ function prepareBlock(n) {
 					thisBlock[x][0] -= 1;
 				}
 			}
+			else if(thisBlock[x + n] && thisBlock[x][0] === thisBlock [x + n][0] && thisBlock[x] !== thisBlock[x + n]) {
+				if(thisBlock[x][0] < 8) {
+					thisBlock[x][0] += 1;
+				} else {
+					thisBlock[x][0] -= 1;
+				}
+			}
 		}
 		if(thisBlock[x][1] == 0) {
 			thisBlock[x][1] = 1 + Math.floor(Math.random() * 8);
 			if(thisBlock[x - n] && thisBlock[x][1] === thisBlock [x - n][1] && thisBlock[x] !== thisBlock[x - n]) {
+				if(thisBlock[x][1] < 8) {
+					thisBlock[x][1] += 1;
+				} else {
+					thisBlock[x][1] -= 1;
+				}
+			}
+			else if(thisBlock[x + n] && thisBlock[x][1] === thisBlock [x + n][1] && thisBlock[x] !== thisBlock[x + n]) {
 				if(thisBlock[x][1] < 8) {
 					thisBlock[x][1] += 1;
 				} else {
@@ -184,6 +212,24 @@ function prepareBlock(n) {
 
 };
 // END PREPARE BLOCK FUNCTION
+
+// EVALUATE BLOCK FUNCTION
+
+function evaluateBlock(block) {
+	var vTargCount = 0;
+	var aTargCount = 0;
+	for(var i=0; i<block.length; i++) {
+		if(block[i - n]) {
+			if(block[i][0] == block[i - n][0]) {
+				vTargCount += 1;
+			}
+			if(block[i][1] == block[i - n][1]) {
+				aTargCount += 1;
+			}
+		}
+	}
+	return [vTargCount, aTargCount];
+}
 
 // Function to light up specified square
 
@@ -262,7 +308,12 @@ var userScore = [0, 0, 0, 0]; // Visual correct, audio correct, visual mistakes,
 // MAIN GAME FUNCTION
 
 function playBlock() {
-	var currentBlock = prepareBlock(n); 
+	var currentBlock = prepareBlock(n);
+	var blockEval = evaluateBlock(currentBlock);
+	while(blockEval[0] != 6 && blockEval[1] != 6) {
+		currentBlock = prepareBlock(n);
+		blockEval = evaluateBlock(currentBlock);
+	}
 	var blockCounter = -1;
 	var thisBlockLength = currentBlock.length;
 	var hitsThisValue = [0, 0];
@@ -318,7 +369,7 @@ function playBlock() {
 		}
 		else {
 			alert('You got ' + userScore[0] + ' of 6 visual cues and ' + userScore[1] + ' of 6 audio cues. You made ' + 
-				userScore[2] + ' visual mistakes and ' + userScore[3] + ' audio mistakes.')
+				(userScore[2] + userScore[3]) + ' total mistakes.')
 			if(userScore[2] < 3 && userScore[3] < 3) {
 				n += 1;
 				alert('Great job! You made fewer than three mistakes per modality. N has been increased to ' + n);
