@@ -16,10 +16,18 @@ window.onresize = function() {
 	$('table').css({'height':dynwidth+'px'});
 }
 
-// Display instructions when prompted
+// Show and hide instructions when prompted
 
 $('#info').click(function() {
-	alert("Welcome to nback.js! \nAfter clicking begin, position your index fingers on the a and l keys. Squares will flash in one of 8 positions on the screen while simultaneously, one of 8 consonants will be spoken auditorily. press the 'a' key when a visual cue matches the one presented 'n' times before. Press the 'l' key when an audio cue matches one 'n' times before. \n \nFor example, if you hear 'k', 'f', 'k' press 'l' after hearing the second 'k' nback.js will report your score to you at the end of each ~1 minute block, and if you scored well, n will be increased by 1.");
+	$('#instruct').css({'display':'block'});
+});
+
+$('#close').click(function() {
+	$('#instruct').css({'display':'none'});
+});
+
+$('#resultclose').click(function() {
+	$('#resultswindow').css({'display':'none'});
 });
 
 // Define letters audio
@@ -368,22 +376,22 @@ function playBlock() {
 			hitsThisValue = [0, 0];
 		}
 		else {
-			alert('You got ' + userScore[0] + ' of 6 visual cues and ' + userScore[1] + ' of 6 audio cues. You made ' + 
-				(userScore[2] + userScore[3]) + ' total mistakes.')
+			$('#resultswindow').css({'display':'block'});
+			$('#results').html('You got ' + userScore[0] + ' of 6 visual cues and ' + userScore[1] + ' of 6 audio cues.');
 			if(userScore[2] < 3 && userScore[3] < 3) {
 				n += 1;
-				alert('Great job! You made fewer than three mistakes per modality. N has been increased to ' + n);
+				$('#resultstwo').html('Great job! You made fewer than three mistakes per modality. N has been increased to ' + n);
 				$('#nvalue').html('n = ' + n);
 			}
 			else if((userScore[2] + userScore[3]) > 6) {
 				if(n > 1) {
 					n -= 1;
 				}
-				alert('You made more than five mistakes. N is now ' + n);
+				$('#resultstwo').html('You made more than five mistakes. N is now ' + n + '.');
 				$('#nvalue').html('n = ' + n);
 			}
 			else {
-				alert('N will remain ' + n);
+				$('#resultstwo').html('N will remain ' + n);
 			}
 			userScore = [0, 0, 0, 0];
 		}

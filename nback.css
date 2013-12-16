@@ -56,6 +56,7 @@ div {
 #begin {
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 20px;
 	width: 100px;
 	padding: 10px;
 }
@@ -63,7 +64,7 @@ div {
 #info {
 	margin-left: auto;
 	margin-right: auto;
-	width: 100px;
+	width: 130px;
 	padding: 10px;
 }
 
@@ -74,5 +75,60 @@ div {
 #nhead {
 	padding: 5px;
 	font-size: 1em;
-	font-family: sans-serif;
+	font-family: "Lucida Grande";
+	background-color: #CFCFCF;
 }
+
+#study {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	width: 140px;
+	margin-top: 10px;
+}
+
+#instruct {
+	position: absolute;
+	margin-left: 10%;
+	margin-right: 10%;
+	width: 80%;
+	height: 80%;
+	background-color: #6B6B6B;
+	display: none;
+}
+
+div p {
+	color: white;
+	width: 80%;
+	margin: auto;
+	padding-top: 10px;
+	font-family: "Lucida Grande";
+	line-height: 200%;
+	vertical-align: middle;
+}
+
+h2 {
+	color: white;
+	padding: 10px;
+}
+
+.close {
+	padding-top: 5%;
+	margin: auto;
+}
+
+.content {
+	margin-top: 10%;
+}
+
+#resultswindow {
+	position: absolute;
+	margin-left: 10%;
+	margin-right: 10%;
+	width: 80%;
+	height: 80%;
+	background-color: #6B6B6B;
+	display: none;
+}
+
+
