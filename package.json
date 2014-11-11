@@ -1,0 +1,25 @@
+{
+  "name": "nback",
+  "version": "0.0.1",
+  "description": "A brain training game proven to raise your IQ!",
+  "main": "index.html",
+  "dependencies": {
+    "connect": "^3.3.3",
+    "serve-static": "^1.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tmlbl/nback.git"
+  },
+  "author": "tmlbl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tmlbl/nback/issues"
+  },
+  "homepage": "https://github.com/tmlbl/nback"
+}
