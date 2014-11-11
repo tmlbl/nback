@@ -1,0 +1,21 @@
+{
+  "name": "nback",
+  "main": "nback.js",
+  "version": "0.0.2",
+  "homepage": "https://github.com/tmlbl/nback",
+  "authors": [
+    "tmlbl <tim.lebel@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "howler.js": "~1.1.25"
+  }
+}
