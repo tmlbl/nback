@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "howler.js": "~1.1.25"
+    "howler.js": "~1.1.25",
+    "jquery": "~2.1.1"
   }
 }
