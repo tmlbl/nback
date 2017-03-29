@@ -318,7 +318,7 @@ var userScore = [0, 0, 0, 0]; // Visual correct, audio correct, visual mistakes,
 function playBlock() {
 	var currentBlock = prepareBlock(n);
 	var blockEval = evaluateBlock(currentBlock);
-	while(blockEval[0] != 6 && blockEval[1] != 6) {
+	while(blockEval[0] != 6 || blockEval[1] != 6) {
 		currentBlock = prepareBlock(n);
 		blockEval = evaluateBlock(currentBlock);
 	}
