@@ -1,21 +1,3 @@
-// Size the grid to the window on load
-
-document.ready = function() {
-	var loadwidth = $(window).height();
-	loadwidth *= 0.50;
-	$('table').css({'width':loadwidth+'px'});
-	$('table').css({'height':loadwidth+'px'});
-}
-
-// Resize grid if window is resized
-
-window.onresize = function() {
-	var dynwidth = $(window).height();
-	dynwidth *= 0.50;
-	$('table').css({'width':dynwidth+'px'});
-	$('table').css({'height':dynwidth+'px'});
-}
-
 // Show and hide instructions when prompted
 
 $('#info').click(function() {

@@ -16,6 +16,9 @@ td div {
 }
 
 table {
+	width: 50vh;
+	height: 50vh;
+
 	border-collapse: collapse;
 	margin: auto;
 	background-color: white;
